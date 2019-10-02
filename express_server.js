@@ -99,7 +99,6 @@ app.get("/login", (req, res) => {
   if (users[userId]) {
   templateVars.email = users[userId].email 
   }
-  console.log(templateVars)
   res.render('urls_login', templateVars)
 })
 app.post("/login", (req, res) => {
