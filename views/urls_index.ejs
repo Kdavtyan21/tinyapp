@@ -23,15 +23,17 @@
         </thead>
         <tbody>
           <% for(let url in urls) { %>
+            <% if (urls[url].id === id) { %>
             <tr>
-              <td><%= url %></td>
-              <td><%= urls[url] %></td>
+              <td><a href="/u/<%= url %>"><%= url %></td>
+              <td><%= urls[url].longURL %></td>
               <td><form method="GET" action="/urls/<%= url %>/edit">
                 <button type="submit" class="btn-primary">Edit</button>
               </form></td>
               <td><form method="POST" action= "/urls/<%= url %>/delete">
                 <button type="submit" class="btn btn-warning">Delete</button>
               </form></td>
+              <% } %>
           </tr>
         <% } %>
       </tbody>
