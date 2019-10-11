@@ -81,7 +81,7 @@ app.post('/urls/:shortURL/edit', (req, res) => {
 });
 
 app.get("/u/:shortURL", (req, res) => {
-  const longURL = 'http://' + urlDatabase[req.params.shortURL].longURL;
+  const longURL = urlDatabase[req.params.shortURL].longURL;
   res.redirect(longURL);
 });
 
