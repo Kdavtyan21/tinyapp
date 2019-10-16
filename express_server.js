@@ -39,7 +39,9 @@ app.post("/urls", (req, res) => {
   res.redirect(`/urls/${shortURL}`);
 });
 
-
+app.get("/", (req, res) => {
+  res.redirect('/urls')
+})
 app.get('/urls/new', (req, res) => {
   const userId = req.session.user_Id;
   let templateVars =  { shortURL: req.params.shortURL, longURL: urlDatabase[req.params.shortURL], email: '' };
@@ -47,7 +49,7 @@ app.get('/urls/new', (req, res) => {
     templateVars.email = users[userId].email;
     return res.render('urls_new', templateVars);
   }
-  res.render('urls_login', templateVars);
+  res.redirect('/login');
 });
 
 app.get('/urls/:shortURL', (req, res) => {
